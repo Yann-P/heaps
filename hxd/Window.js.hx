@@ -208,6 +208,9 @@ class Window {
 	}
 
 	function onMouseWheel(e:js.html.WheelEvent) {
+		if(e.target != element) {
+			return;
+		}
 		e.preventDefault();
 		var ev = new Event(EWheel, mouseX, mouseY);
 		ev.wheelDelta = e.deltaY / 120; // browser specific?
